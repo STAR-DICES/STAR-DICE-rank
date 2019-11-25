@@ -1,0 +1,74 @@
+swagger: "2.0"
+info:
+  description: "This microservice handles request to add/remove likes and dislikes and retrieve a list of stories we are interacted with (used by Rank microservice)"
+  version: "1.0.0"
+  title: "Reactions Microservice"
+schemes:
+- "http"
+paths:
+  /rank/{user_id}:
+    get:
+      summary: "retrieve suggested stories for the user"
+      operationId: rank
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "user_id"
+        required: true
+        type: "integer"
+      responses:
+        '200':
+          description: "Stories correctly loaded"
+          schema:
+            $ref: "#/definitions/Stories"
+        '404':
+          description: "User not found"
+    
+definitions:
+  Story:
+    type: "object"
+    properties:
+      story_id:
+        type: "integer"
+      title:
+        type: "string"
+      text:
+        type: "string"
+      rolls_outcome:
+        type: "string"
+      theme:
+        type: "string"
+      date:
+        type: "string"
+      likes:
+        type: "integer"
+      dislikes:
+        type: "integer"
+      published:
+        type: "boolean"
+      author_id:
+        type: "integer"
+      author_name:
+        type: "string"
+    required:
+    - "story_id"
+    - "title"
+    - "text"
+    - "rolls_outcome"
+    - "theme"
+    - "date"
+    - "likes"
+    - "dislikes"
+    - "published"
+    - "author_id"
+    - "author_name"
+    additionalProperties: false
+
+  Stories:
+    type: "object"
+    properties:
+      stories:
+       type: "array"
+       items:
+          $ref: "#/definitions/Story"

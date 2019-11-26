@@ -30,7 +30,7 @@ class TestResponse:
 all_stories =   {
                     "stories": [
                         {
-                            "story_id": 1,
+                            "id": 1,
                             "title": "gita felice",
                             "text": "remare",
                             "rolls_outcome": [
@@ -46,7 +46,7 @@ all_stories =   {
                             "author_name": "mario rossi"
                         },
                         {
-                            "story_id": 2,
+                            "id": 2,
                             "title": "campeggio",
                             "text": "che bello",
                             "rolls_outcome": [
@@ -62,7 +62,7 @@ all_stories =   {
                             "author_name": "mario rossi"
                         },
                         {
-                            "story_id": 3,
+                            "id": 3,
                             "title": "prendere il sole",
                             "text": "onde",
                             "rolls_outcome": [
@@ -78,7 +78,7 @@ all_stories =   {
                             "author_name": "mario rossi"
                         },
                         {
-                            "story_id": 4,
+                            "id": 4,
                             "title": "il fresco",
                             "text": "castori",
                             "rolls_outcome": [
@@ -94,7 +94,7 @@ all_stories =   {
                             "author_name": "mario rossi"
                         },
                         {
-                            "story_id": 5,
+                            "id": 5,
                             "title": "vasche",
                             "text": "tante nuotate",
                             "rolls_outcome": [
@@ -110,7 +110,7 @@ all_stories =   {
                             "author_name": "stefano rossi"
                         },
                         {
-                            "story_id": 6,
+                            "id": 6,
                             "title": "svacco",
                             "text": "gianluca vacchi",
                             "rolls_outcome": [
@@ -126,7 +126,7 @@ all_stories =   {
                             "author_name": "stefano grossi"
                         },
                         {
-                            "story_id": 7,
+                            "id": 7,
                             "title": "caldo",
                             "text": "che macello",
                             "rolls_outcome": [
@@ -154,7 +154,7 @@ all_reactions = {
 stories_reacted = {
                     "stories": [
                         {
-                            "story_id": 5,
+                            "id": 5,
                             "title": "vasche",
                             "text": "tante nuotate",
                             "rolls_outcome": [
@@ -170,7 +170,7 @@ stories_reacted = {
                             "author_name": "stefano rossi"
                         },
                         {
-                            "story_id": 7,
+                            "id": 7,
                             "title": "caldo",
                             "text": "che macello",
                             "rolls_outcome": [

@@ -48,6 +48,6 @@ def _rank(user_id):
 
     # stories without my interactions (final drop)
     # 
-    suggesteds = [ story for story in select_themes if story["story_id"] not in liked_stories ]
+    suggesteds = [ story for story in select_themes if story["id"] not in liked_stories ]
 
     return jsonify( {"stories": suggesteds } )

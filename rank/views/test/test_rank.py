@@ -23,7 +23,7 @@ class TestHelper(TestCase): # pragma: no cover
         self.assertEqual(result, {
                                     "stories": [
                                         {
-                                        "story_id": 7,
+                                        "id": 7,
                                         "title": "caldo",
                                         "text": "che macello",
                                         "rolls_outcome": [
@@ -39,4 +39,12 @@ class TestHelper(TestCase): # pragma: no cover
                                         "author_name": "stefano trossi"
                                         }
                                     ]
+                                 })
+
+    def test_user_not_writer(self):
+        reply = self.client.get('/rank/1')  # Known user_id
+        self.assertEqual(reply.status_code, 200)
+        result = json.loads(reply.data)
+        self.assertEqual(result, {
+                                    "stories": []
                                  })

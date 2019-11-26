@@ -200,10 +200,8 @@ def real_get_stories(timeout):
     return requests.get(stories_url + "/stories", timeout=timeout)
 
 def test_get_reactions(author_id, timeout):
-    if str(author_id) not in all_reactions:
-        # aggiungi un json per la risposta delle reactions
-        return TestResponse(200, stories_reacted)
-    return TestResponse(404, None)
+    # aggiungi un json per la risposta delle reactions
+    return TestResponse(200, stories_reacted)
 
 def real_get_reactions(author_id, timeout):
     return requests.get(reactions_url + "/get-reacted-stories/" + str(author_id), timeout=timeout)

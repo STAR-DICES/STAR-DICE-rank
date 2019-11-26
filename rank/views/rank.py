@@ -5,8 +5,8 @@ from flakon import SwaggerBlueprint
 
 rank = SwaggerBlueprint('rank', 'rank', swagger_spec='./rank/rank-specs.yaml')
 
-stories_url = 'story docker ip goes here'
-request_url = 'story docker ip goes here'
+stories_url = 'http://stories:5000'
+reactions_url = 'http://reactions:5000'
 
 """
 This function is used to return the top 5 most liked stories that the user could be interested in.

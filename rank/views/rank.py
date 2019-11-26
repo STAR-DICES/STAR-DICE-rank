@@ -1,12 +1,13 @@
 import requests, json
 from jsonschema import validate, ValidationError
 from flask import request, jsonify, abort
+from flask import current_app as app
 from flakon import SwaggerBlueprint
 
 rank = SwaggerBlueprint('rank', 'rank', swagger_spec='./rank/rank-specs.yaml')
 
-stories_url = 'http://stories:5000'
-reactions_url = 'http://reactions:5000'
+stories_url = 'stories docker ip goes here'
+reactions_url = 'reactions docker ip goes here' 
 
 """
 This function is used to return the top 5 most liked stories that the user could be interested in.
@@ -20,19 +21,19 @@ def _rank(user_id):
 
     if not general_validator('rank', user_id):
         abort(400)
-    
-    stories_resp = request.get(stories_url+"/stories") # response 
-    if stories_resp.status_code != 200:
+
+    all_stories = app.request.get_stories() # response 
+    if all_stories.status_code != 200:
         abort(404)
 
-    reactions_resp = request.get(request_url + "/get-reacted-stories/" + user_id) # response
-    if reactions_resp.status_code != 200:
+    liked_stories = app.request.get_reactions(user_id) # response
+    if all_stories.status_code != 200:
         abort(404)
     
     # load the jsons arrived from the other microservices
     # 
-    all_stories = json.loads(stories_resp.json())
-    liked_stories = json.loads(reactions_resp.json())
+    all_stories = all_stories.json()
+    liked_stories = liked_stories.json()
 
     # my own stories
     # 
